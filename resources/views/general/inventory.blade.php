@@ -1,5 +1,13 @@
 @extends('layout-1.master')
 
+@php
+    // REST APIs
+    // $sumber = 'https://private-ba966-aminnur.apiary-mock.com/coba';
+    // $konten = file_get_contents($sumber);
+    // $data   = json_decode($konten, true);
+    // dd($data['data'][1]['nama'])
+@endphp
+
 @section('title', 'Inventory')
 
 @section('head')
@@ -17,16 +25,23 @@
       <div class="col-sm-6">
         <h1 class="my-4">Inventory List</h1>
       </div>
-      <div class="col-sm-6" style="padding-top:30px;text-align:right;;">
+      <div class="col-sm-6" style="padding-top:30px;text-align:right;display: flex;">
         <select class="custom-select" name="filtername">
-          <option value="">All</option>
-          <option value="">Tenda</option>
+          <option value="0">All</option>
+          <option value="1">Available</option>
         </select>
         <select class="custom-select" name="filtername">
-          <option value="">All</option>
-          <option value="">Tenda</option>
+          <option value="0">All</option>
+          <option value="1">Tenda</option>
+          <option value="2">Flysheet</option>
+          <option value="3">Carrier</option>
+          <option value="4">Mattress</option>
+          <option value="5">Lamp</option>
+          <option value="6">Knife</option>
         </select>
-        <button class="btn btn-success" name="filter">Filter</button>
+        <div>
+          <button class="btn btn-success" name="filter">Filter</button>
+        </div>
       </div>
     </div>
 

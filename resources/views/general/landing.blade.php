@@ -1,5 +1,13 @@
 @extends('layout-1.master')
 
+@php
+    // REST APIs
+    // $sumber = 'https://private-ba966-aminnur.apiary-mock.com/coba';
+    // $konten = file_get_contents($sumber);
+    // $data   = json_decode($konten, true);
+    // dd($data['data'][1]['nama'])
+@endphp
+
 @section('title', 'Home')
 
 @section('head')
@@ -34,8 +42,8 @@
     <!-- Portfolio Section -->
     <div name="items">
       <div class="row">
-        @for ($i=1; $i <= 8; $i++)
-          <div class="col-lg-3 col-sm-4 portfolio-item">
+        @for ($i=1; $i <= 6; $i++)
+          <div class="col-lg-4 col-sm-4 portfolio-item">
             <div class="card">
               <h5 class="card-header">Tenda Dome 4P</h5>
               <img class="card-img-top" src="upload/consina-magnum-4.jpeg" alt="">
