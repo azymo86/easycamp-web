@@ -13,3 +13,4 @@
 
 Route::get('/', function () {return view('general/landing');});
 Route::get('/inventory', function () {return view('general/inventory');});
+Route::get('/services', function () {return view('general/services');});
