@@ -19,6 +19,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
           </li>
+          <li class="nav-item">
+            <a href="upload/pricelist.jpeg" download class="btn btn-info btn-download">Download <i class="fa fa-download"></i></a>
+          </li>
         </ul>
       </div>
     </div>

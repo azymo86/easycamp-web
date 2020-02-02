@@ -13,7 +13,11 @@
 @section('head')
   {{-- Custom CSS --}}
   <style media="screen">
-
+    .filter {
+      padding-top:30px;
+      text-align:right;
+      display: flex;
+    }
   </style>
 @endsection
 
@@ -25,12 +29,12 @@
       <div class="col-sm-6">
         <h1 class="my-4">Inventory List</h1>
       </div>
-      <div class="col-sm-6" style="padding-top:30px;text-align:right;display: flex;">
-        <select class="custom-select" name="filtername">
+      <div id="filter" class="filter col-sm-6">
+        <select class="custom-select" name="condition">
           <option value="0">All</option>
           <option value="1">Available</option>
         </select>
-        <select class="custom-select" name="filtername">
+        <select class="custom-select" name="itemname">
           <option value="0">All</option>
           <option value="1">Tenda</option>
           <option value="2">Flysheet</option>
@@ -46,15 +50,15 @@
     </div>
 
     <!-- Portfolio Section -->
-    <div name="items">
+    <div id="items">
       <div class="row">
         @for ($i=1; $i <= 20; $i++)
           <div class="col-lg-2 col-sm-3 portfolio-item">
             <div class="card">
-              <h6 class="card-header">Tenda Dome 4P</h6>
-              <img class="card-img-top" src="upload/consina-magnum-4.jpeg" alt="">
+              <h6 class="card-header" name="title">Tenda Dome 4P</h6>
+              <img class="card-img-top" name="image" src="upload/consina-magnum-4.jpeg" alt="">
               <div class="card-footer">
-                <h6 class="align-self-center float-center">{{$i}}/20 item</h6>
+                <h6 class="align-self-center float-center" name="footerinfo">{{$i}}/20 item</h6>
               </div>
             </div>
           </div>
