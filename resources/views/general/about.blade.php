@@ -13,7 +13,15 @@
 @section('head')
   {{-- Custom CSS --}}
   <style media="screen">
+<<<<<<< HEAD
     
+=======
+    .filter {
+      padding-top:30px;
+      text-align:right;
+      display: flex;
+    }
+>>>>>>> 34d0837911bd14717cbd00230eb5cf539426cd11
   </style>
 @endsection
 
