@@ -59,7 +59,7 @@
       </div>
 
       {{-- See More --}}
-      <div class="see-more" onclick="window.location='#'">
+      <div class="see-more" onclick="window.location='/inventory'">
         See More
       </div>
     </div>
@@ -70,36 +70,24 @@
     <!-- Features Section -->
     <div class="row">
       <div class="col-lg-6">
-        <h2>Modern Business Features</h2>
-        <p>The Modern Business template by Start Bootstrap includes:</p>
+        <h2>Why rent us?</h2>
+        <p>Many benefits you get if you rent with us:</p>
         <ul>
-          <li>
-            <strong>Bootstrap v4</strong>
-          </li>
-          <li>jQuery</li>
-          <li>Font Awesome</li>
-          <li>Working contact form with validation</li>
-          <li>Unstyled page elements for easy customization</li>
+          <li>You can order in advance for <b>1 month</b></li>
+          <li>If cancel, the rent can be <b>returned</b></li>
+          <li>The rental process is <b>very easy</b></li>
+          <li>Wherever you can order</li>
         </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+        <p style="text-align:justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
       </div>
       <div class="col-lg-6">
-        <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
+        <img class="img-fluid rounded" src="upload/adventure.png" alt="">
       </div>
     </div>
     <!-- /.row -->
 
-    <hr>
-
     <!-- Call to Action Section -->
-    <div class="row mb-4">
-      <div class="col-md-8">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
-      </div>
-      <div class="col-md-4">
-        <a class="btn btn-lg btn-secondary btn-block" href="#">Contact Us</a>
-      </div>
-    </div>
+    @include('layout-1.contact')
 
   </div>
   <!-- /.container -->

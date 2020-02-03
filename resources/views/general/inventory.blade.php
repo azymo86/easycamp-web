@@ -14,7 +14,7 @@
   {{-- Custom CSS --}}
   <style media="screen">
     .filter {
-      padding-top:30px;
+      padding:30px;
       text-align:right;
       display: flex;
     }
@@ -49,16 +49,18 @@
       </div>
     </div>
 
+    @include('layout-1/breadcrumb')
+
     <!-- Portfolio Section -->
     <div id="items">
       <div class="row">
         @for ($i=1; $i <= 20; $i++)
-          <div class="col-lg-2 col-sm-3 portfolio-item">
+          <div class="col-lg-2 col-6 portfolio-item">
             <div class="card">
               <h6 class="card-header" name="title">Tenda Dome 4P</h6>
               <img class="card-img-top" name="image" src="upload/consina-magnum-4.jpeg" alt="">
               <div class="card-footer">
-                <h6 class="align-self-center float-center" name="footerinfo">{{$i}}/20 item</h6>
+                <h6 class="align-self-center float-center" name="footerinfo">{{$i}}k /night</h6>
               </div>
             </div>
           </div>
@@ -70,19 +72,10 @@
 
     <hr>
 
-    <img class="img-fluid rounded mb-4" src="http://placehold.it/1200x300" alt="">
-
-    <hr>
+    <img class="img-fluid rounded mb-4" src="upload/adventure-1.png" alt="" style="width: 100%;height:350px;">
 
     <!-- Call to Action Section -->
-    <div class="row mb-4">
-      <div class="col-md-8">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
-      </div>
-      <div class="col-md-4">
-        <a class="btn btn-lg btn-secondary btn-block" href="#">Contact Us</a>
-      </div>
-    </div>
+    @include('layout-1.contact')
 
   </div>
   <!-- /.container -->
