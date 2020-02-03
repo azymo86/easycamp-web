@@ -9,6 +9,7 @@
   <meta name="author" content="">
 
   <title>Easy Camp | @yield('title')</title>
+  <link rel="icon" href="{!! asset('upload/icon-tab.png') !!}"/>
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
