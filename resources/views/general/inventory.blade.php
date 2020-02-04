@@ -1,13 +1,5 @@
 @extends('layout-1.master')
 
-@php
-    // REST APIs
-    // $sumber = 'https://private-ba966-aminnur.apiary-mock.com/coba';
-    // $konten = file_get_contents($sumber);
-    // $data   = json_decode($konten, true);
-    // dd($data['data'][1]['nama'])
-@endphp
-
 @section('title', 'Inventory')
 
 @section('head')
@@ -18,8 +10,16 @@
       text-align:right;
       display: flex;
     }
+    .card-header {
+      font-size: 15px;
+      height: 65px;
+    }
+    .card-footer {
+      height: 70px;
+    }
   </style>
 @endsection
+
 
 @section('content')
   <!-- Page Content -->
@@ -30,21 +30,14 @@
         <h1 class="my-4">Inventory List</h1>
       </div>
       <div id="filter" class="filter col-sm-6">
-        <select class="custom-select" name="condition">
+        <select class="custom-select">
           <option value="0">All</option>
-          <option value="1">Available</option>
-        </select>
-        <select class="custom-select" name="itemname">
-          <option value="0">All</option>
-          <option value="1">Tenda</option>
-          <option value="2">Flysheet</option>
-          <option value="3">Carrier</option>
-          <option value="4">Mattress</option>
-          <option value="5">Lamp</option>
-          <option value="6">Knife</option>
+          @for ($i=0; $i < $count; $i++)
+            <option value="{{$id[$i]}}">{{$name[$i]}}</option>
+          @endfor
         </select>
         <div>
-          <button class="btn btn-success" name="filter">Filter</button>
+          <button class="btn btn-success" onclick="filter()" name="filter">Filter</button>
         </div>
       </div>
     </div>
@@ -54,19 +47,18 @@
     <!-- Portfolio Section -->
     <div id="items">
       <div class="row">
-        @for ($i=1; $i <= 20; $i++)
-          <div class="col-lg-2 col-6 portfolio-item">
+        @for ($i=0; $i < $count; $i++)
+          <div id="item-{{$id[$i]}}" data-id="{{$id[$i]}}" class="col-lg-2 col-6 portfolio-item">
             <div class="card">
-              <h6 class="card-header" name="title">Tenda Dome 4P</h6>
-              <img class="card-img-top" name="image" src="upload/consina-magnum-4.jpeg" alt="">
+              <h6 class="card-header" name="title">{{$name[$i]}}</h6>
+              <img class="card-img-top" name="image" src="{{$url_image[$i]}}" alt="">
               <div class="card-footer">
-                <h6 class="align-self-center float-center" name="footerinfo">{{$i}}k /night</h6>
+                <p class="align-self-center float-center" name="footerinfo">Rp {{$price[$i]}},- /night</p>
               </div>
             </div>
           </div>
         @endfor
       </div>
-
     </div>
     <!-- /.row -->
 
@@ -83,6 +75,9 @@
 
 @section('script')
   <script type="text/javascript">
-
+    function filter() {
+      var selected = jQuery('#filter').find('select').val()
+      console.log(selected);
+    }
   </script>
 @endsection

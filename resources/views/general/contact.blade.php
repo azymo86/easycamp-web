@@ -1,11 +1,15 @@
 @extends('layout-1.master')
 
 @php
-    // REST APIs
-    // $sumber = 'https://private-ba966-aminnur.apiary-mock.com/coba';
-    // $konten = file_get_contents($sumber);
-    // $data   = json_decode($konten, true);
-    // dd($data['data'][1]['nama'])
+  // REST APIs
+  $source  = env('APP_URL').'/contact';
+  $conten  = file_get_contents($source);
+  $raw     = json_decode($conten, true);
+  $data    = $raw['data'][0];
+
+
+  $address    = $data['address'];
+  // dd($address)
 @endphp
 
 @section('title', 'Contact Us')
@@ -46,21 +50,21 @@
       <div class="col-lg-4 mb-4">
         <h3>Contact Details</h3>
         <p>
-          St. Cijawura Cirang II/2 No.6 <br>
-          Bandung, Jawa Barat (40286) <br>
-          Indonesia
+          {{$street}} {{$city}},<br>
+          {{$province}} {{$postcode}} <br>
+          {{$country}}
         </p>
         <p>
           <i class="fa fa-phone-square" aria-hidden="true"></i>
-          (123) 456-7890
+          {{$phone}}
         </p>
         <p>
           <i class="fa fa-envelope" aria-hidden="true"></i>
-          <a href="mailto:name@example.com">name@example.com</a>
+          <a href="mailto:{{$email}}">{{$email}}</a>
         </p>
         <p>
           <i class="fa fa-clock-o" aria-hidden="true"></i>
-          Monday - Friday: 9:00 AM to 8:00 PM
+          {{$open_day}} - {{$close_day}}: {{$open_time}} to {{$close_time}}
         </p>
       </div>
     </div>
@@ -70,7 +74,7 @@
     <!-- Card Icons Section -->
     <div class="row">
       {{-- <div class="col-sm-2"></div> --}}
-      <div class="col-lg-2 col-4" onclick="window.location='mailto:name@example.com'">
+      <div class="col-lg-2 col-4" onclick="window.location='mailto:{{$gmail}}'">
         <div class="card h-100">
           <div class="card-body">
             <img class="card-img-top" src="https://image.flaticon.com/icons/png/512/281/281769.png" alt="">
@@ -78,7 +82,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-2 col-4" onclick="window.open('https://api.whatsapp.com/send?phone=628123456789&text=Halo,%20mau%20sewa%20peralatan%20gan.')">
+      <div class="col-lg-2 col-4" onclick="window.open('https://api.whatsapp.com/send?phone={{$whatsapp}}&text=Halo,%20mau%20sewa%20peralatan%20gan.')">
         <div class="card h-100">
           <div class="card-body">
             <img class="card-img-top" src="https://lh4.googleusercontent.com/proxy/QodyiymuCVyl85KcaRS86bc4v-viP3yJKPdiIRMZqpuGPusruEY69FXV4a-ubT2uivPXagmyIdiN_ZJ0UiTq5vp2fZOqnBj9VqsemsNEb4uNanzd091TD6wYzMV13w" alt="">
@@ -86,7 +90,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-2 col-4" onclick="window.open('https://www.instagram.com/')">
+      <div class="col-lg-2 col-4" onclick="window.open('{{$instagram}}')">
         <div class="card h-100">
           <div class="card-body">
             <img class="card-img-top" src="https://pngimg.com/uploads/instagram/instagram_PNG11.png" alt="">
