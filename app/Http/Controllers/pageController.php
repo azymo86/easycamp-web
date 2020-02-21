@@ -41,23 +41,6 @@ class pageController extends Controller
       $datas  = $raw['data']['data'];
       $count  = count($datas);
 
-      // for ($i=0; $i < $count; $i++) {
-      //   $id[]         = $data[$i]['id'];
-      //   $name[]       = $data[$i]['name'];
-      //   $price[]      = $data[$i]['price'];
-      //   $url_image[]  = $data[$i]['url_image'];
-      // };
-      // // dd($name);
-      //
-      // return view ('general/inventory', [
-      //   'data'      => $data,
-      //   'count'     => $count,
-      //   'id'        => $id,
-      //   'name'      => $name,
-      //   'price'     => $price,
-      //   'url_image' => $url_image
-      // ]);
-
       return view('general/inventory', [
         'datas'  => $datas,
         'count' => $count
