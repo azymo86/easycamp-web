@@ -20,7 +20,6 @@
   </style>
 @endsection
 
-
 @section('content')
   <!-- Page Content -->
   <div class="container">
@@ -32,9 +31,9 @@
       <div id="filter" class="filter col-sm-6">
         <select class="custom-select">
           <option value="0">All</option>
-          @for ($i=0; $i < $count; $i++)
-            <option value="{{$id[$i]}}">{{$name[$i]}}</option>
-          @endfor
+          @foreach ($datas as $data)
+            <option value="{{$data['id']}}">{{$data['name']}}</option>
+          @endforeach
         </select>
         <div>
           <button class="btn btn-success" onclick="filter()" name="filter">Filter</button>
@@ -47,17 +46,17 @@
     <!-- Portfolio Section -->
     <div id="items">
       <div class="row">
-        @for ($i=0; $i < $count; $i++)
-          <div id="item-{{$id[$i]}}" data-id="{{$id[$i]}}" class="col-lg-2 col-6 portfolio-item">
+        @foreach ($datas as $data)
+          <div id="item-{{$data['id']}}" data-id="{{$data['id']}}" class="col-lg-2 col-6 portfolio-item">
             <div class="card">
-              <h6 class="card-header" name="title">{{$name[$i]}}</h6>
-              <img class="card-img-top" name="image" src="{{$url_image[$i]}}" alt="">
+              <h6 class="card-header" name="title">{{$data['name']}}</h6>
+              <img class="card-img-top" name="image" src="{{$data['url_image']}}" style="cursor:pointer;">
               <div class="card-footer">
-                <p class="align-self-center float-center" name="footerinfo">Rp {{$price[$i]}},- /night</p>
+                <p class="align-self-center float-center" name="footerinfo">Rp {{number_format($data['price'], 0, ',', '.')}} /night</p>
               </div>
             </div>
           </div>
-        @endfor
+        @endforeach
       </div>
     </div>
     <!-- /.row -->

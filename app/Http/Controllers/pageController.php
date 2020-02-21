@@ -38,24 +38,29 @@ class pageController extends Controller
       $source = env('APP_URL').'/inventory';
       $conten = file_get_contents($source);
       $raw    = json_decode($conten, true);
-      $data   = $raw['data'];
-      $count  = count($data);
+      $datas  = $raw['data']['data'];
+      $count  = count($datas);
 
-      for ($i=0; $i < $count; $i++) {
-        $id[]         = $data[$i]['id'];
-        $name[]       = $data[$i]['name'];
-        $price[]      = $data[$i]['price'];
-        $url_image[]  = $data[$i]['url_image'];
-      };
-      // dd($name);
+      // for ($i=0; $i < $count; $i++) {
+      //   $id[]         = $data[$i]['id'];
+      //   $name[]       = $data[$i]['name'];
+      //   $price[]      = $data[$i]['price'];
+      //   $url_image[]  = $data[$i]['url_image'];
+      // };
+      // // dd($name);
+      //
+      // return view ('general/inventory', [
+      //   'data'      => $data,
+      //   'count'     => $count,
+      //   'id'        => $id,
+      //   'name'      => $name,
+      //   'price'     => $price,
+      //   'url_image' => $url_image
+      // ]);
 
-      return view ('general/inventory', [
-        'data'      => $data,
-        'count'     => $count,
-        'id'        => $id,
-        'name'      => $name,
-        'price'     => $price,
-        'url_image' => $url_image
+      return view('general/inventory', [
+        'datas'  => $datas,
+        'count' => $count
       ]);
     }
 
