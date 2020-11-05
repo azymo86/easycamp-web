@@ -1,17 +1,5 @@
 @extends('layout-1.master')
 
-@php
-  // REST APIs
-  $source  = env('APP_URL').'/contact';
-  $conten  = file_get_contents($source);
-  $raw     = json_decode($conten, true);
-  $data    = $raw['data'][0];
-
-
-  $address    = $data['address'];
-  // dd($address)
-@endphp
-
 @section('title', 'Contact Us')
 
 @section('head')
